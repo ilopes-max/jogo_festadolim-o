@@ -45,7 +45,7 @@ lista_frutaboa = [Frutaboa (rp("scr/img/cupcakebom.png")),
                   Frutaboa (rp("scr/img/limonadaboa.png")),
                   Frutaboa (rp("scr/img/sorvetebom.png")),
                   Frutaboa (rp("scr/img/tortaboa.png"))]
-
+#ajustando a fonte de pontuação
 fonte = pg.font.SysFont("Elephant", 16,True,False)
 
 status_jogo = "INICIO"
@@ -80,7 +80,7 @@ while rodando:
         texto_pontuacao = fonte.render(f"Pontuação: {contador_pontos}", True,(255,255,255),None)
         tela.blit(texto_pontuacao,(0,0))
         limaozinho.andar(teclas_pressionadas)
-    
+
         for frutaruim in lista_frutaruim:
             frutaruim.andar()
             frutaruim.exibir(tela)
@@ -99,8 +99,9 @@ while rodando:
             frutaboa.exibir(tela)
             if limaozinho.mascara.overlap(frutaboa.mascara,(frutaboa.pos_x_frutaboa - limaozinho.pos_x, frutaboa.pos_y_frutaboa - limaozinho.pos_y)):
                 contador_pontos = contador_pontos +1
+                limaozinho.bom()
                 frutaboa.voltar()
-            if contador_pontos == 10:
+            if contador_pontos == 15:
                 status_jogo = "GANHOU"
                 limaozinho.ganhou()
                 
@@ -108,6 +109,7 @@ while rodando:
         tela.blit(capa_ganhou,(0,0))
         if teclas_pressionadas[pg.K_KP_ENTER] or teclas_pressionadas[pg.K_RETURN]:
             status_jogo = "JOGANDO"
+            contador_pontos = 0
     
     if status_jogo == "PERDEU":
         tela.blit(capa_perdeu,(0,0))

@@ -9,7 +9,7 @@ class Frutaruim:
         
         #criando um atributo
         self.pos_y_frutaruim = -10
-        self.velocidade = random.randint (5,10)
+        self.velocidade = random.randint (5,15)
         self.mascara = pg.mask.from_surface(self.frutaruim)
     
     def andar (self):
@@ -25,4 +25,4 @@ class Frutaruim:
         self.pos_x_frutaruim = random.randint(150,940)
         self.pos_y_frutaruim = -100
         
-        self.velocidade = random.randint(5,10) 
+        self.velocidade = random.randint(5,15) 

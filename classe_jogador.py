@@ -20,6 +20,7 @@ class Jogador:
         self.sombom = pg.mixer.Sound (rp("scr/sound/pontosbom.mp3"))
         self.somperdeu = pg.mixer.Sound (rp("scr/sound/sompedeu.mp3"))
         self.somganhou = pg.mixer.Sound (rp("scr/sound/somganhou.mp3"))
+        self.somjogo = pg.mixer.Sound (rp("scr/sound/somjogo.mp3"))
 
     def andar(self, teclas_pressionadas):
         # tempo atual do jogo em milissegundos
@@ -74,3 +75,6 @@ class Jogador:
 
     def ganhou (self):
         self.somganhou.play()
+
+    def jogo(self):
+        self.somjogo.play()
